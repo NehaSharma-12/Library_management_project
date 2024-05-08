@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Library Management System</title>
+</head>
+<body>
+    <h2>Welcome to the Dashboard</h2>
+    {% if current_user.is_admin %}
+        <p>You have admin access.</p>
+        <ul>
+            <li><a href="#">Maintenance</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Transactions</a></li>
+        </ul>
+    {% else %}
+        <p>You have user access.</p>
+        <ul>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Transactions</a></li>
+        </ul>
+    {% endif %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
